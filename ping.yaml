@@ -1,8 +1,8 @@
-- name: Run yum update
-  hosts: rhel_hosts
-  gather_facts: no
+# This playbook uses the win_ping module to test connectivity to Windows hosts
+- name: Ping
+  hosts: all
+  gather_facts: false
+  
   tasks:
-    - name: Upgrade all packages
-      yum:
-        name: '*'
-        state: latest
+  - name: ping
+    win_ping:
